@@ -4,9 +4,9 @@ App({
 
 
   },
-    /**
+  /**
    * @brief 状态管理
-   */
+  */
   watchCallBack: {},
   watchingKeys: [],
   $watch(key, cb) {
@@ -33,6 +33,19 @@ App({
       })
     }
   },
+  $off(key, handle) {
+    if (this.watchCallBack[key]) {
+      for (var i = 0; i<this.watchCallBack[key].length; i++) {
+        if (this.watchCallBack[key][i] == handle) {
+          this.watchCallBack[key].splice(i, 1);
+        }
+      }
+    }
+  },
+
+  /**
+   * @brief 全局变量
+  */
   globalData: {
     nums: 0
   }

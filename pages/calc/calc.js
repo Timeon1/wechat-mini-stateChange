@@ -1,4 +1,7 @@
 // pages/calc/calc.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -8,20 +11,24 @@ Page({
     nums: 0
   },
   less(){
+    app.globalData.nums--
     this.setData({
-      nums: this.data.nums -1
+      nums: app.globalData.nums
     })
   },
   plus(){
+    app.globalData.nums++
     this.setData({
-      nums: this.data.nums + 1
+      nums: app.globalData.nums
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      nums: app.globalData.nums
+    })
   },
 
   /**
