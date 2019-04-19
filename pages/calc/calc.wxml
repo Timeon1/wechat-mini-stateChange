@@ -2,5 +2,4 @@
   <view style="text-align:center">{{nums}}</view>
   <button bindtap="less">-</button>
   <button type="primary" bindtap="plus">+</button>
-
 </view>

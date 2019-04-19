@@ -16,9 +16,14 @@ Page({
   },
 
   watchFuncs() {
-
+    let that = this
     return {
       numsChangeAction: function() {
+
+        // nums为5时 取消监听
+        if(app.globalData.nums == 5){
+          app.$off('nums', that.watchObj.numsChangeAction);
+        }
         console.log('nums 改变了', app.globalData.nums)
       },
     }
